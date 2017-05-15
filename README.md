@@ -41,4 +41,6 @@ Huh!!!!!!!
 Most dangerously, the 'region' didn't make it into the model(s) -- and this can be dangerous, as the slope of the regression
 line aggregating all the regions is nearly flat -- and NEGATIVE! Regressions lines region-by-region are all positive slopes when regressed by pollution.
 
+Likely cause: one of the world's largest cities is one of the regions, and is an anomaly: very high (!!) pollution, but surprisingly low mortality: I expect if we could inspect the demographics, we'd find city dwellers to be younger/less exposed.
+
 
