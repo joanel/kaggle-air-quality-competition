@@ -22,4 +22,23 @@ Spending time considering the difference between 'competitive data science' in t
 and what I've been trained to do. That there's been techniques developed as work-arounds to score high on a 
 competitions is --- bracing.
 
+______
+
+Another issue, without looking up how to model in meteorology, is choosing a model. I'm just not happy about using linear
+regression, here, though an effort with least squares was reasonable: least squares is a treatment that allows the correlated
+nature of this data to be accounted for.
+
+A polynomial model is beyond the scope of what we've been doing in class, but something I will need to do in the 'real world'
+so I'm hoping I can get something up, if only to compare.
+
+A scatterplot made this 'u' shape (didn't keep) and that kind of curve just SAYS 'polynomial'. There's some discussion of
+'XGBOOST' that I didn't have time to follow up on, learn about, but I DID learn that it does F-score comparison, and a F
+score indicates that day-of-year and temperature, and the highly-correlated days-since-1-Jan-2006 (first day of data storage
+which I would discard/not use) are the only variables reasonable to model.
+
+Huh!!!!!!!
+
+Most dangerously, the 'region' didn't make it into the model(s) -- and this can be dangerous, as the slope of the regression
+line aggregating all the regions is nearly flat -- and NEGATIVE! Regressions lines region-by-region are all positive slopes when regressed by pollution.
+
 
