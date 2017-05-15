@@ -1,3 +1,6 @@
+# To work with later: 
+# had me exploring day-in-year some
+
 #!/usr/bin/python
 import numpy as np
 import matplotlib.pyplot as plt
