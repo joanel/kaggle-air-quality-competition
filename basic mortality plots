@@ -1,0 +1,31 @@
+# this mostly demonstrates that cardiovascular/cancer deaths
+# in dataset seem associated with temperature: rates increase in
+# winter months
+
+import pandas as pd
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+import csv
+  regions = dict((r['Code'],r['Region']) \
+                  for r in csv.DictReader(open('../input/regions.csv')))
+                    
+                    data['region'].replace(regions, inplace = True)
+
+sns.set()
+
+train = pd.read_csv('../input/train.csv', parse_dates=[2], index_col='Id')
+test = pd.read_csv('../input/test.csv', parse_dates=[2], index_col='Id')
+
+test['mortality_rate'] = np.nan
+data = pd.concat([train, test], axis=0)
+
+def plot_by_region(var):
+    by_region = data[['date', 'region', var]]
+    by_region = by_region.pivot(index='date', columns='region', values=var)
+    by_region.plot(figsize=(12,8), alpha=0.6)
+    plt.title(var, fontsize=18)
+    plt.legend(loc='upper right')
+    plt.show()
+
+plot_by_region('mortality_rate') # can also look at PM10, O3, etc.
