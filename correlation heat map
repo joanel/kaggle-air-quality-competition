@@ -1,0 +1,26 @@
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+sns.set_style('white')
+
+def plot_correlation_map(df):
+    corr = train.corr()
+    _, ax = plt.subplots(figsize=(12, 10))
+    cmap = sns.diverging_palette(220, 10, as_cmap=True)
+    _ = sns.heatmap(
+        corr,
+        cmap=cmap,
+        square=True,
+        cbar_kws={'shrink': .9},
+        ax=ax,
+        annot=True,
+        annot_kws={'fontsize': 12}
+    )
+
+train = pd.read_csv('./data/train.csv', parse_dates=['date'])
+test = pd.read_csv('./data/test.csv')
+
+plot_correlation_map(train)
+
+plt.show()
