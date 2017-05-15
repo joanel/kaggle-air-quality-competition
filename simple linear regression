@@ -1,0 +1,28 @@
+import pandas as pd
+from sklearn.linear_model import LinearRegression
+
+# a simple linear regression surprisingly models the data pretty well
+# this is restive-making for me -- this is NOT a linear process
+# nothing, just nothing meteorological is EVER linear. HMM.
+
+features = ['T2M']
+
+train = pd.read_csv('./data/train.csv')
+test = pd.read_csv('./data/test.csv')
+
+train = train.dropna(axis=0, how = 'any')
+
+print(train.describe())
+
+X_train = train[features]
+y = train['mortality_rate'].copy()
+
+X_test = test[features].copy()
+
+lr = LinearRegression()
+lr.fit(X_train, y)
+
+predictions = test[['Id']].copy()
+predictions['mortality_rate'] = lr.predict(X_test)
+
+predictions.to_csv('linear_regression.csv', index = False)
