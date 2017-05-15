@@ -2,6 +2,7 @@
 # to consider, see what can be done in a short time. 
 # using some 'starter code' here I'm going to need to 
 # translate/study, myself
+# in R
 
 # Setup
 library(devtools)
